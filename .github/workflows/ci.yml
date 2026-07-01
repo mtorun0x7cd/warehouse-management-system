@@ -48,7 +48,7 @@ jobs:
         run: mvn -B --no-transfer-progress clean package
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: warehouse-management-system
           path: target/warehouse-management-system-*-jar-with-dependencies.jar
