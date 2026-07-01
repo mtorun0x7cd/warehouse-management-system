@@ -68,7 +68,7 @@ jobs:
           name: warehouse-management-system
 
       - name: Publish release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
         with:
           files: warehouse-management-system-*-jar-with-dependencies.jar
           body: |
