@@ -25,5 +25,5 @@ survive.
 
 ## Reporting
 
-To report a substantive issue worth recording, contact info@mtorun0x7cd.com.
+To report a substantive issue worth recording, contact <info@mtorun0x7cd.com>.
 Given the archived status of the project, a fix or response is not guaranteed.

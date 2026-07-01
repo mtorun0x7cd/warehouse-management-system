@@ -52,7 +52,7 @@ The persistence layer uses JPA via EclipseLink 2.7.9 (the `persistence.xml` desc
 
 The system enforces strict separation of concerns through four architectural layers:
 
-```
+```text
 ┌─────────────────────────────────────────────────────┐
 │                   Presentation (GUI)                │
 │         Swing-based role-specific interfaces        │
@@ -73,6 +73,7 @@ The system enforces strict separation of concerns through four architectural lay
 ```
 
 #### Tier Architecture Flowchart
+
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FFE0B2', 'edgeColor': '#FB8C00', 'primaryBorderColor': '#EF6C00', 'lineColor': '#FB8C00', 'textColor': '#5D4037' }}}%%
 graph TD
@@ -87,7 +88,7 @@ graph TD
 The system comprises 14 components: four presentation (GUI), four control (Steuerung), three data-management (Verwaltung), and three cross-cutting components. Each role maps to a vertical slice through the role-specific layers.
 
 | Layer | Admin | Kunde (Customer) | Lagerhalter (Warehouse) | Sachbearbeiter (Clerk) |
-|-------|-------|-------------------|-------------------------|------------------------|
+| ------- | ------- | ------------------- | ------------------------- | ------------------------ |
 | **GUI** | AdminGUI | KundeGUI | LagerhalterGUI | SachbearbeiterGUI |
 | **Steuerung** | AdminSteuerung | KundeSteuerung | LagerhalterSteuerung | SachbearbeiterSteuerung |
 | **Verwaltung** | — | KundeVerwaltung, BestellungVerwaltungK | — | BestellungVerwaltungS |
@@ -97,7 +98,7 @@ The Admin and Lagerhalter roles in this archive provide the presentation and con
 **Cross-cutting components:**
 
 | Component | Purpose |
-|-----------|---------|
+| ----------- | --------- |
 | **WAWIDBModel** | JPA entity model with 12 entities (Bestellung, Kunde, Produkt, Lager, Nachricht, etc.), persistence units, and database access layer |
 | **Bootloader** | Login/logout GUI, authentication logic, session management, i18n resource bundles |
 | **ComponentController** | Component lifecycle management, role-based activation/deactivation via `IActivateComponent` interface |
@@ -114,6 +115,7 @@ The JPA persistence layer maps 12 entity classes to MySQL:
 - **Nachricht** — Internal messaging system
 
 #### Entity-Relationship Diagram (ERD)
+
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FFE0B2', 'edgeColor': '#FB8C00', 'primaryBorderColor': '#EF6C00', 'lineColor': '#FB8C00', 'textColor': '#5D4037' }}}%%
 erDiagram
@@ -135,7 +137,7 @@ erDiagram
 ## Tech Stack
 
 | Category | Technologies |
-|----------|-------------|
+| ---------- | ------------- |
 | Language | Java 11 |
 | Build | Maven (assembly plugin, executable fat JAR) |
 | GUI Framework | Java Swing, BeansBinding |
@@ -147,7 +149,7 @@ erDiagram
 
 ## Project Structure
 
-```
+```text
 warehouse-management-system/
 ├── src/
 │   ├── AdminGUI/                  # Admin role presentation layer
@@ -179,7 +181,7 @@ warehouse-management-system/
 
 The persistence layer is configured in `src/WAWIDBModel/src/META-INF/persistence.xml`, which defines two `RESOURCE_LOCAL` persistence units — `WAWIDBDEVPU` (development) and `WAWIDBPRODPU` (production). Both default to a local MySQL instance:
 
-```
+```text
 jdbc:mysql://localhost:3306/wawidb   (user: root, password: wawipassword)
 ```
 
@@ -209,7 +211,7 @@ mvn clean package -DskipTests
 ## Documentation
 
 | Document | Description |
-|----------|-------------|
+| ---------- | ------------- |
 | [WAWI_Grobentwurf.pdf](docs/WAWI_Grobentwurf.pdf) | System architecture and rough design |
 | [WAWI_Kunde_AF_Tabelle.pdf](docs/WAWI_Kunde_AF_Tabelle.pdf) | Use case table for the Kunde (Customer) domain |
 | [WAWI_Kunde_CD.pdf](docs/WAWI_Kunde_CD.pdf) | Class diagram for the Kunde (Customer) domain |
