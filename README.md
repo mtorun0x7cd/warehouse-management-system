@@ -28,7 +28,7 @@ The persistence layer uses JPA via EclipseLink 2.7.9 (the `persistence.xml` desc
 | Dimension | Detail |
 | :--- | :--- |
 | **Institution** | TH Köln (Cologne University of Applied Sciences) |
-| **Program** | Computer Science and Systems Engineering (B.Sc.) |
+| **Program** | Technische Informatik (Technical Computer Science), B.Sc. |
 | **Course** | Software-Praktikum (Software Lab) (SWP) |
 | **Semester** | Summer 2019 |
 | **Type** | Team |
