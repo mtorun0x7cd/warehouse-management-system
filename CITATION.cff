@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: Warehouse Management System (WAWI)
+message: If you use this software, please cite it using the metadata below.
+type: software
+abstract: >-
+  A multi-tier Java Swing desktop application for warehouse and inventory
+  management with role-based access control, a component-based MVC
+  architecture, and JPA persistence over MySQL. Developed as an academic
+  software-engineering project at TH Köln (Cologne University of Applied
+  Sciences).
+authors:
+  - given-names: Mert
+    family-names: Torun
+    email: info@mtorun0x7cd.com
+    affiliation: TH Köln
+version: 1.0.0
+date-released: 2019-08-31
+license: MIT
+repository-code: https://github.com/mtorun0x7cd/warehouse-management-system
+url: https://github.com/mtorun0x7cd/warehouse-management-system
+keywords:
+  - warehouse-management
+  - inventory-management
+  - java
+  - swing
+  - jpa
+  - eclipselink
+  - mysql
+  - mvc
+  - component-based-architecture
+  - academic-project
