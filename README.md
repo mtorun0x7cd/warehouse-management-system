@@ -218,13 +218,8 @@ mvn clean package -DskipTests
 
 | Document | Description |
 | ---------- | ------------- |
-| [WAWI_Grobentwurf.pdf](docs/WAWI_Grobentwurf.pdf) | System architecture and rough design |
 | [WAWI_Kunde_AF_Tabelle.pdf](docs/WAWI_Kunde_AF_Tabelle.pdf) | Use case table for the Kunde (Customer) domain |
 | [WAWI_Kunde_CD.pdf](docs/WAWI_Kunde_CD.pdf) | Class diagram for the Kunde (Customer) domain |
-| [WAWI_Lastenheft.pdf](docs/WAWI_Lastenheft.pdf) | Requirements specification |
-| [WAWI_SystemSpez.pdf](docs/WAWI_SystemSpez.pdf) | System specification |
-| [WAWI_Testspezifikation.pdf](docs/WAWI_Testspezifikation.pdf) | Test specification |
-| [WAWI_Integrationstest.pdf](docs/WAWI_Integrationstest.pdf) | Integration test specification |
 
 ## References
 
