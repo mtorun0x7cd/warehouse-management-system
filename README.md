@@ -81,7 +81,7 @@ The system enforces strict separation of concerns through four architectural lay
 #### Tier Architecture Flowchart
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FFE0B2', 'edgeColor': '#FB8C00', 'primaryBorderColor': '#EF6C00', 'lineColor': '#FB8C00', 'textColor': '#5D4037' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#EFF6FF', 'edgeColor': '#2563EB', 'primaryBorderColor': '#2563EB', 'lineColor': '#2563EB', 'textColor': '#0F172A' }}}%%
 graph TD
     View[Swing GUI View] --> Controller[Controller / Steuerung]
     Controller --> Service[Service Layer / Verwaltung]
@@ -123,7 +123,7 @@ The JPA persistence layer maps 12 entity classes to MySQL:
 #### Entity-Relationship Diagram (ERD)
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FFE0B2', 'edgeColor': '#FB8C00', 'primaryBorderColor': '#EF6C00', 'lineColor': '#FB8C00', 'textColor': '#5D4037' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#EFF6FF', 'edgeColor': '#2563EB', 'primaryBorderColor': '#2563EB', 'lineColor': '#2563EB', 'textColor': '#0F172A' }}}%%
 erDiagram
     Kunde ||--o{ Bestellung : places
     Kunde ||--o{ Nachricht : sends
