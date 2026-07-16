@@ -8,7 +8,7 @@
 
 # Warehouse Management System (WAWI)
 
-> Multi-tier Java desktop application for warehouse and inventory management with role-based access control, 14-component modular architecture, and JPA persistence.
+> Multi-tier Java desktop application for warehouse and inventory management with role-based component activation, 14-component modular architecture, and JPA persistence.
 
 [![CI](https://img.shields.io/github/actions/workflow/status/mtorun0x7cd/warehouse-management-system/ci.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=CI)](https://github.com/mtorun0x7cd/warehouse-management-system/actions/workflows/ci.yml)
 ![Java](https://img.shields.io/badge/Java_11-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)

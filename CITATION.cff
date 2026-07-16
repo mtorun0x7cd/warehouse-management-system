@@ -4,7 +4,7 @@ message: If you use this software, please cite it using the metadata below.
 type: software
 abstract: >-
   A multi-tier Java Swing desktop application for warehouse and inventory
-  management with role-based access control, a component-based MVC
+  management with role-based component activation, a component-based MVC
   architecture, and JPA persistence over MySQL. Developed as an academic
   software-engineering project at TH Köln (University of Applied
   Sciences).
