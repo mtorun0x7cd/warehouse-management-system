@@ -19,9 +19,11 @@ The development persistence unit in
 (`root` / `wawipassword`) for a disposable local MySQL instance used during
 development and continuous integration; these are not secrets. EclipseLink is
 configured with `drop-and-create-tables`, so the schema is dropped and
-recreated on every run. Do not reuse these credentials, expose the application
-to an untrusted network, or run it against a database whose contents must
-survive.
+recreated on every run. The application performs no authentication: login is a
+user-ID lookup against the `kunde` table and the password field on the login
+form is never evaluated, so any user ID present in that table logs in as a
+customer. Do not reuse these credentials, expose the application to an
+untrusted network, or run it against a database whose contents must survive.
 
 ## Reporting
 

@@ -23,11 +23,11 @@
 
 ## Overview
 
-WAWI (Warenwirtschaft) is a multi-tier desktop application for managing warehouse operations, product inventories, customer orders, supplier deliveries, and internal messaging. The system applies a layered Model-View-Controller pattern to a realistic warehouse management domain, enforcing strict separation of concerns across 14 component modules.
+WAWI (Warenwirtschaft) is a multi-tier desktop application for managing the product catalogue, customer orders, and internal messaging; warehouse operations and supplier deliveries exist as domain model only. The system applies a layered Model-View-Controller pattern to a warehouse management domain across 14 component modules.
 
-The application is organized around four user roles — Administrator, Customer (Kunde), Warehouse Keeper (Lagerhalter), and Clerk (Sachbearbeiter) — each mapped to a dedicated GUI (presentation) and Steuerung (control) layer, backed by shared Verwaltung (data-management) and persistence components. In this archive only the Customer (Kunde) role is implemented end-to-end; the other three stacks are scaffolding (see the component table below). A central Bootloader component provides the login/logout GUI and session lifecycle — role selection with a user-ID lookup, with no credential verification (the password field is present but not evaluated) — plus internationalization (i18n) for German and English locales. A ComponentController coordinates the lifecycle of the role-specific modules via a unified `IActivateComponent` activation interface.
+The application is organized around four user roles — Administrator, Customer (Kunde), Warehouse Keeper (Lagerhalter), and Clerk (Sachbearbeiter) — each mapped to a dedicated GUI (presentation) and Steuerung (control) layer, backed by shared Verwaltung (data-management) and persistence components. In this archive only the Customer (Kunde) role is implemented end-to-end; the other three stacks are scaffolding (see the component table below). A central Bootloader component provides the login/logout GUI and session lifecycle — role selection with a user-ID lookup, with no credential verification (the password field is present but not evaluated) — plus internationalization (i18n) for German and English locales. A ComponentController component defines the unified `IActivateComponent` activation contract and the `CompType` role enumeration; the Bootloader's `LoginVerwaltung` drives the activation lifecycle against it.
 
-The persistence layer uses JPA via EclipseLink 2.7.9 (the `persistence.xml` descriptor targets the JPA 2.0 schema), mapping 12 entity classes to a MySQL backend, with separate persistence units for development and production environments. JUnit test suites cover the Verwaltung (service) and Steuerung (controller) layers.
+The persistence layer uses JPA via EclipseLink 2.7.9 (the `persistence.xml` descriptor targets the JPA 2.0 schema), mapping 12 entity classes to a MySQL backend, with two identically configured persistence units selectable at runtime. JUnit test suites cover the Verwaltung (service) and Steuerung (controller) layers.
 
 ## Context
 
@@ -43,11 +43,10 @@ The persistence layer uses JPA via EclipseLink 2.7.9 (the `persistence.xml` desc
 
 - **Role-based module architecture** — four user roles (Admin, Kunde, Lagerhalter, Sachbearbeiter) with isolated module stacks; only the Kunde stack is implemented end-to-end in this archive
 - **Component-based activation** — each role activates only its required modules via `IActivateComponent` interface
-- **Customer order management** — order creation, status tracking, and order history for customers and clerks
-- **Warehouse inventory tracking** — stock movements, warehouse locations, and delivery management
-- **Supplier delivery processing** — inbound delivery tracking with line-item granularity (Einlieferung, Lieferposition)
+- **Customer order management** — order creation, status tracking, and order history for customers
+- **Warehouse and supplier domain model** — stock movements, storage locations, and inbound deliveries with line-item granularity (Lagerverkehr, Lager, Lagerort, Einlieferung, Lieferant, Lieferposition) are modelled as JPA entities; no control or GUI layer was implemented for them
 - **Internal messaging system** — bidirectional messaging with status tracking (Nachricht entities)
-- **Dual persistence units** — separate JPA configurations for development and production environments
+- **Dual persistence units** — two identically configured `RESOURCE_LOCAL` units (`WAWIDBDEVPU`, `WAWIDBPRODPU`) selectable at runtime; the environment split is structural, not configurational
 - **Internationalization (i18n)** — German and English locale bundles via `Bundle.properties`
 - **Swing GUI with data binding** — BeansBinding framework for reactive UI updates
 - **JUnit test coverage** — automated tests for Verwaltung and Steuerung layers
@@ -107,7 +106,7 @@ Only the **Kunde (Customer)** role is implemented end-to-end. The Admin, Lagerha
 | ----------- | --------- |
 | **WAWIDBModel** | JPA entity model with 12 entities (Bestellung, Kunde, Produkt, Lager, Nachricht, etc.), persistence units, and database access layer |
 | **Bootloader** | User-ID login/logout GUI (no credential verification), session lifecycle, i18n resource bundles |
-| **ComponentController** | Component lifecycle management, role-based activation/deactivation via `IActivateComponent` interface |
+| **ComponentController** | Activation contract (`IActivateComponent`) and role enumeration (`CompType`) shared by all role components |
 
 ### Data Model
 
@@ -163,7 +162,7 @@ warehouse-management-system/
 │   ├── BestellungVerwaltungK/     # Customer order data management
 │   ├── BestellungVerwaltungS/     # Clerk order data management
 │   ├── Bootloader/                # Login/session GUI & application entry point
-│   ├── ComponentController/       # Module lifecycle coordination
+│   ├── ComponentController/       # Activation contract & role enumeration
 │   ├── KundeGUI/                  # Customer role presentation layer
 │   ├── KundeSteuerung/            # Customer role business logic
 │   ├── KundeVerwaltung/           # Customer CRUD data management
@@ -172,7 +171,21 @@ warehouse-management-system/
 │   ├── SachbearbeiterGUI/         # Clerk role presentation layer
 │   ├── SachbearbeiterSteuerung/   # Clerk role business logic
 │   └── WAWIDBModel/               # JPA entities & persistence layer
-└── docs/                          # Architecture and specification documents
+├── docs/
+│   ├── WAWI_Kunde_AF_Tabelle.pdf  # Use case table, Kunde domain
+│   ├── WAWI_Kunde_CD.pdf          # Class diagram, Kunde domain
+│   ├── social_preview.svg         # Repository header graphic (source)
+│   ├── social_preview_light.png   # Header graphic, light theme
+│   ├── social_preview_dark.png    # Header graphic, dark theme
+│   ├── social_card.png            # Social-preview card
+│   └── render.sh                  # Header graphic render script
+├── pom.xml                        # Maven build (fat-JAR assembly, JUnit)
+├── .github/                       # CI workflows, funding, dependabot
+├── CITATION.cff
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── LICENSE
+└── README.md
 ```
 
 ## Getting Started
@@ -182,6 +195,7 @@ warehouse-management-system/
 - Java JDK 11+
 - Apache Maven 3.6+
 - MySQL 8.0, reachable on `localhost:3306` (required for persistence and the test suite)
+- Two icon resources under `src/Bootloader/src/wawi/gui/bootloader/gui/resources/` are preserved as symlinks; on Windows, clone with `git clone -c core.symlinks=true …` so the login window renders its logo
 
 ### Database Setup
 
