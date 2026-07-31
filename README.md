@@ -230,6 +230,8 @@ mvn clean package -DskipTests
 
 ## Documentation
 
+Both documents, and the source javadoc, index requirements by the course's LF identifiers (LF150 product catalogue and order creation, LF160 order history and cancellation, LF170 customer messaging); the instructor-authored requirements catalogue that defines them is not part of this archive.
+
 | Document | Description |
 | ---------- | ------------- |
 | [WAWI_Kunde_AF_Tabelle.pdf](docs/WAWI_Kunde_AF_Tabelle.pdf) | Use case table for the Kunde (Customer) domain |
@@ -237,11 +239,11 @@ mvn clean package -DskipTests
 
 ## References
 
-[1] E. Gamma, R. Helm, R. Johnson, and J. Vlissides, "Design Patterns: Elements of Reusable Object-Oriented Software," Addison-Wesley, 1994.
+[1] E. Gamma, R. Helm, R. Johnson, and J. Vlissides, *Design Patterns: Elements of Reusable Object-Oriented Software*, Addison-Wesley, 1994.
 
 [2] JSR 317: Java Persistence API 2.0 Specification, Oracle, 2009. [https://jcp.org/en/jsr/detail?id=317](https://jcp.org/en/jsr/detail?id=317)
 
-[3] C. Szyperski, "Component Software: Beyond Object-Oriented Programming," Addison-Wesley, 2002.
+[3] C. Szyperski, *Component Software: Beyond Object-Oriented Programming*, Addison-Wesley, 2002.
 
 ## Citation
 

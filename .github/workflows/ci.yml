@@ -77,7 +77,7 @@ jobs:
         with:
           files: warehouse-management-system-*-jar-with-dependencies.jar
           body: |
-            Initial archived release (${{ github.ref_name }}) of Warehouse Management System (WAWI), an academic project preserved for reference. See the README for documentation.
+            Archived release (${{ github.ref_name }}) of Warehouse Management System (WAWI), an academic project preserved for reference. See the README for documentation.
 
             **Full Changelog**: https://github.com/mtorun0x7cd/warehouse-management-system/commits/${{ github.ref_name }}
         env:
