@@ -191,7 +191,7 @@ The persistence layer is configured in `src/WAWIDBModel/src/META-INF/persistence
 jdbc:mysql://localhost:3306/wawidb   (user: root, password: wawipassword)
 ```
 
-EclipseLink is configured with `drop-and-create-tables`, so the schema is generated automatically on first run. Adjust the `javax.persistence.jdbc.*` properties to target a different database. The default credentials are intended for a disposable local instance only and must not be reused in any real deployment.
+EclipseLink is configured with `drop-and-create-tables`, so the schema is dropped and recreated on every run. Adjust the `javax.persistence.jdbc.*` properties to target a different database. The default credentials are intended for a disposable local instance only and must not be reused in any real deployment.
 
 Provision the database expected by the defaults:
 

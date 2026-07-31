@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>Warehouse Management System (WAWI)</name>
-    <description>Multi-tier Java Swing desktop application for warehouse and inventory management with role-based access control, a component-based MVC architecture, and JPA persistence over MySQL.</description>
+    <description>Multi-tier Java Swing desktop application for warehouse and inventory management with role-based component activation, a component-based MVC architecture, and JPA persistence over MySQL.</description>
     <url>https://github.com/mtorun0x7cd/warehouse-management-system</url>
     <inceptionYear>2019</inceptionYear>
 
