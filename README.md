@@ -230,7 +230,7 @@ mvn clean package -DskipTests
 
 ## Documentation
 
-Both documents, and the source javadoc, index requirements by the course's LF identifiers (LF150 product catalogue and order creation, LF160 order history and cancellation, LF170 customer messaging); the instructor-authored requirements catalogue that defines them is not part of this archive.
+The use case table and the source javadoc index requirements by the course's LF identifiers (LF150 product catalogue and order creation, LF160 order history and cancellation, LF170 customer messaging); the instructor-authored requirements catalogue that defines them is not part of this archive.
 
 | Document | Description |
 | ---------- | ------------- |
