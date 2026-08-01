@@ -23,7 +23,7 @@
 
 ## Overview
 
-WAWI (Warenwirtschaft) is a multi-tier desktop application for managing the product catalogue, customer orders, and internal messaging; warehouse operations and supplier deliveries exist as domain model only. The system applies a layered Model-View-Controller pattern to a warehouse management domain across 14 component modules.
+WAWI (Warenwirtschaft) is a multi-tier desktop application for product catalogue browsing, customer order management, and internal messaging; warehouse operations and supplier deliveries exist as domain model only. The system applies a layered Model-View-Controller pattern to a warehouse management domain across 14 component modules.
 
 The application is organized around four user roles — Administrator, Customer (Kunde), Warehouse Keeper (Lagerhalter), and Clerk (Sachbearbeiter) — each mapped to a dedicated GUI (presentation) and Steuerung (control) layer, backed by shared Verwaltung (data-management) and persistence components. In this archive only the Customer (Kunde) role is implemented end-to-end; the other three stacks are scaffolding (see the component table below). A central Bootloader component provides the login/logout GUI and session lifecycle — role selection with a user-ID lookup, with no credential verification (the password field is present but not evaluated) — plus internationalization (i18n) for German and English locales. A ComponentController component defines the unified `IActivateComponent` activation contract and the `CompType` role enumeration; the Bootloader's `LoginVerwaltung` drives the activation lifecycle against it.
 
